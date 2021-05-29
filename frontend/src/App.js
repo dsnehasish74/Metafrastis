@@ -15,7 +15,7 @@ function App() {
         <Router>
         <Switch>
         <Route exact path="/" component={Landing}/>
-        <Route path="/meeting" component={RoomContainer}/>
+        <Route path="/meeting/:id" component={RoomContainer}/>
         <Route path="/join-meeting" component={Join}/>
         <Route path="/create-meeting" component={Create}/>
         <Redirect to="/"/>

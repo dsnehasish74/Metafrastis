@@ -12,7 +12,6 @@ function Landing(){
             <div class="btn-join-meeting">
             <Link to="/join-meeting"><button type="button" class="join-meeting">JOIN MEETING</button></Link>
             </div>
-
             <div class="btn-join-meeting">
             <Link to="/create-meeting"><button type="button" class="join-meeting">CREATE MEETING</button></Link>
             </div>
