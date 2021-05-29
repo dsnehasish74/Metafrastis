@@ -1,0 +1,12 @@
+.container{
+    height: 100px;
+    width: 300px;
+    display:flex;
+    justify-content: center;
+    margin-top: 50px;
+    margin:0 auto;
+    margin-bottom: 50px;
+}
+
+
+

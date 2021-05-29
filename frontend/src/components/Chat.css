@@ -1,0 +1,16 @@
+.box{
+    width: 40%;
+    position: absolute;
+    right: 0;
+    display: flex;
+    flex: auto;
+    justify-content: center;
+    background-color: black;
+    height: 100%;
+    padding: 10px;
+}
+
+h1 {
+    color: cornsilk;
+    
+}

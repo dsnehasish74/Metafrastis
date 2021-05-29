@@ -1,21 +1,23 @@
-import React from 'react'
-import HeroImage from './asset/hero.svg'
-import {Link} from 'react-router-dom';
- const Landing = () => {
-    return (
-        <div className="main_container">
-        <div className="Hero-container">
 
-            <div className="hero-text">
-                <h1 className="company_name">Edunation</h1>
-                <h1>Re-imagine online Education. Make your online classes more easy , fun and interactive </h1>
-                <Link to="/signin"><button className="hero-button">Get started</button></Link>
+import React, {useState,useEffect} from 'react';
+import {Link} from 'react-router-dom';
+import { Button } from './Button';
+import './landing.css'
+
+
+
+function Landing(){
+    return (
+        <>
+            <div class="btn-join-meeting">
+            <Link to="/join-meeting"><button type="button" class="join-meeting">JOIN MEETING</button></Link>
             </div>
-            <div>
-                <img className="hero-image" src={HeroImage} alt="hero"></img>
+
+            <div class="btn-join-meeting">
+            <Link to="/create-meeting"><button type="button" class="join-meeting">CREATE MEETING</button></Link>
             </div>
-        </div>
-        </div>
+        </>
     )
 }
+
 export default Landing;
