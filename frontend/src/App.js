@@ -5,7 +5,7 @@ import {
   Redirect
 } from "react-router-dom";
 import RoomContainer from './components/room_container'
-import Landing from './components/landing'
+import Landing from './components/landing.js'
 function App() {
   return (
     <div className="App">
