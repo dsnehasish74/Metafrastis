@@ -1,20 +1,33 @@
+
+
 .btn-join-meeting{
-    height: 50px;
+    
     width: 300px;
-    display:flex;
-    justify-content: center;
-    margin-top: 50px;
-    margin:auto;
-    margin-bottom: 50px;
+    margin-left: 41%;
+    float: left;
+    margin-top: 300px;
+    
 }
 
 .join-meeting{
     text-align: center;
-    color: aliceblue;
-    background-color: red;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(11, 11, 63);
+    background-color: aliceblue;
     height: 50px;
     width: 300px;
-    margin-top: 200px;
+    
     border-radius: 30px;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
+}
+
+.speech{
+    background: url("../assets/speech2.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height:100%;
 }
