@@ -12,7 +12,7 @@ export function SocketProvider({ children }) {
 
   useEffect(() => {
     const newSocket = io(
-      'http://localhost:8000'
+      'http://localhost:8000', {transports: ['websocket']}
     )
     setSocket(newSocket);
 

@@ -4,7 +4,7 @@ import {
   Route,
   Redirect
 } from "react-router-dom";
-import RoomContainer from './components/room_container.js'
+import RoomContainer from './components/room_container'
 import Landing from './components/landing.js'
 import Join from './components/Join.js'
 import Create from './components/create.js'
