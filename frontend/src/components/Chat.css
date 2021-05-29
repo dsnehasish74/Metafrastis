@@ -2,15 +2,40 @@
     width: 40%;
     position: absolute;
     right: 0;
-    display: flex;
-    flex: auto;
+    /*display: flex;
+    flex: auto;*/
     justify-content: center;
     background-color: black;
+    align-content: center;
     height: 100%;
     padding: 10px;
 }
 
-h1 {
+.chat {
+    text-align: center;
+    background-color: black;
+    padding: 0;
+}
+
+.personal {
+    text-align: right;
+    background-color: rgb(24, 199, 24);
+    border-radius: 15px;
+    padding-right: 20px;
+    border-bottom: 15px;
+    margin-left: 80px;
+}
+
+.others {
+    text-align: left;
+    background-color: whitesmoke;
+    border-radius: 15px;
+    padding-left: 20px;
+    border-bottom: 15px;
+    margin-right: 80px;
+}
+
+h1,h2 {
     color: cornsilk;
     
 }

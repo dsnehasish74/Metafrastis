@@ -4,24 +4,37 @@ import { Button } from './Button';
 import './Chat.css';
 function Chatcard(props)
 {
-    return(
-        <div>
-            <h1>{props.user}</h1>
-            <h1>{props.message}</h1>
-        </div>
-    )
+    if (props.user == props.currentUser){
+        return(
+            <div className="personal">
+                <h4>{props.user}<br/>
+                {props.message}</h4>
+            </div>
+        )
+    }
+    else {
+        return(
+            <div className="others">
+                <h4>{props.user}<br/>
+                {props.message}</h4>
+            </div>
+        )
+    }
+    
 }
 function Chat(props){
-    var list=props.messages
+    var list= props.messages
+    var currentUser =  props.currentUser
     console.log(list)
     return (
         <>
             <div className="box">
-                <h1>Chats</h1>
+                <div className="chat"><h1>Chats</h1><hr/></div>
                 {list.map((msg) => (
                         <Chatcard
                             user={msg.user}
                             message={msg.message}
+                            currentUser={currentUser}
                         />
                     ))}
             </div>
