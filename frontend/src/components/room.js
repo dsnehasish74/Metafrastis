@@ -1,10 +1,12 @@
 import React, { useEffect, useState,useRef } from 'react'
 import { useSocket } from '../socket/socketprovider';
 import Footer from './footer';
-import Chat from "./Chat"
+import Chat from "./Chat";
+import axios from 'axios';
 import SpeechRecognition, { useSpeechRecognition } from "react-speech-recognition";
 const Room = (props) => {
-    const socket = useSocket()
+    const [messages,setmessages]=useState([]);
+    const socket = useSocket();
     useEffect(() => {
         if (socket == null)
             return
@@ -26,7 +28,16 @@ const Room = (props) => {
         if (socket == null) return
         socket.on('chatMessage', (msg) => {
             console.log("Inside socket.on");
-            console.log(msg);
+            let username=msg.user;
+            let arr=messages
+            axios.post('https://translate-metafratis.herokuapp.com/translate', {
+            text:msg.msg,
+            lan:"english"
+        })
+        .then(function (response) {
+        arr.push({"user": username, "message":response.data.output})
+        setmessages(arr)
+    })
         })
         console.log("Outside socket.on");
         return () => socket.off('chatMessage');
@@ -65,7 +76,9 @@ const Room = (props) => {
     }
     return (
         <>
-            <Chat></Chat>
+            <Chat
+                messages={messages}
+            />
             <button ref={microphoneRef} className="mic" onClick={handleListing}><img src="../assets/mic.png" width="50" height="50" alt="" /></button>
             {isListening && (
                 <button className="microphone-stop btn" onClick={stopHandle}>
@@ -77,6 +90,7 @@ const Room = (props) => {
                     <textarea  ref={sendeRef} value={transcript} col="5" row="6"/>
                 </div>
                 <button className="Send_button" onClick={handleSend}>Send</button>
+
             <Footer></Footer>
         </>
     )
