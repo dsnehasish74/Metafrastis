@@ -23,6 +23,7 @@ function Join(props){
                     <div className="meeting-id"><input type="text" name="meeting-id"  onChange={setroom}/></div>
                     <label>Enter Username:</label>
                     <div className="username"><input type="text" name="meeting-id"/></div>
+                    <div className="language"><input type="text" name="language" size="15"/></div>
                     <button className="join_meeting" onClick={joinRoom}>JOIN MEETING</button>
                 </form>
                 </div>

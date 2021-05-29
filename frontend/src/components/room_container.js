@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 import {SocketProvider} from '../socket/socketprovider';
 import Room from './room'
-
 const RoomContainer=(props)=>
 {
     const room_id=props.match.params.id;

@@ -8,11 +8,15 @@ import RoomContainer from './components/room_container'
 import Landing from './components/landing.js'
 import Join from './components/Join.js'
 import Create from './components/create.js'
+import {UserProvider} from './provider/userprovider.js'
 import './App.css'
+import { LangProvider } from "./provider/langprovider";
 
 function App() {
   return (
-    <div className="App">
+    <UserProvider>
+      <LangProvider>
+      <div className="App">
         <Router>
         <Switch>
         <Route exact path="/" component={Landing}/>
@@ -21,8 +25,10 @@ function App() {
         <Route path="/create-meeting" component={Create}/>
         <Redirect to="/"/>
       </Switch>
-    </Router>
-    </div>
+      </Router>
+      </div>
+      </LangProvider>
+    </UserProvider>
   );
 }
 
