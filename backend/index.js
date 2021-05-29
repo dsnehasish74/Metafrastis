@@ -6,7 +6,8 @@ const app = express();
 const server = http.createServer(app);
 const io = socketio(server);
 const {joinUser,getUser} = require('./util/user');
-
+var cors =require('cors');
+app.use(cors());
 io.on('connection', (socket) => {
 
     //Join a room
