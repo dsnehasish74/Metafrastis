@@ -1,0 +1,22 @@
+.container{
+    height: 100px;
+    width: 300px;
+    display:flex;
+    justify-content: center;
+    margin-top: 50px;
+    margin:0 auto;
+    margin-bottom: 50px;
+}
+
+
+
+.join{
+    text-align: center;
+    
+    background-color: red;
+    height: 50px;
+    width: 300px;
+    margin-top: 200px;
+    border-radius: 30px;
+    margin-bottom: 50px;
+}
