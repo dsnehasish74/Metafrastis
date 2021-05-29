@@ -27,7 +27,8 @@ io.on('connection', (socket) => {
 
     socket.on('chatMessage',msg=>{
         const user = getUser(socket.id);
-        io.to(user.room).emit('message', {user: `${user.username}`,msg:`msg`});
+        console.log(msg)
+        io.to(user.room).emit('chatMessage', {user: `${user.username}`,msg:`${msg}`});
     })
 
     socket.on('disconnect',()=>{
