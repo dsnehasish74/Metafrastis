@@ -16,14 +16,18 @@ function Join(props){
     return (
         <>
             <div class="container">
-                <form>
+                <div className="image-container"><img src="../assets/bg-heading-03.jpg" alt="" height="500"/></div>
+                <div className="form-container">
+                <form className="form">
                     <label>Enter Meeting ID:</label>
-                    <div className="meeting-id"><input type="text" name="meeting-id" size="15" onChange={setroom}/></div>
+                    <div className="meeting-id"><input type="text" name="meeting-id"  onChange={setroom}/></div>
                     <label>Enter Username:</label>
-                    <div className="username"><input type="text" name="meeting-id" size="15"/></div>
+                    <div className="username"><input type="text" name="meeting-id"/></div>
                     <button className="join_meeting" onClick={joinRoom}>JOIN MEETING</button>
                 </form>
+                </div>
             </div>
+            
         </>
     )
 }
