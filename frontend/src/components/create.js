@@ -6,7 +6,7 @@ import { v4 as uuidv4 } from 'uuid';
 function Create(props){
     const createRoom = () => {
         let roomId = uuidv4();
-        props.history.push("/classroom/" +roomId);
+        props.history.push("/meeting/" +roomId);
     }
     return (
         <>

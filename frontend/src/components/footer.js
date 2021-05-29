@@ -4,7 +4,7 @@ import { Button } from './Button';
 import './footer.css';
 
 
-function footer(){
+function Footer(){
     return (
         <>
             <div className="wtf">
@@ -16,4 +16,4 @@ function footer(){
     )
 }
 
-export default footer;
+export default Footer;

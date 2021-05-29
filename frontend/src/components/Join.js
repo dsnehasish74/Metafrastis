@@ -6,12 +6,12 @@ function Join(props){
     const [roomId, setroomId]=useState("");
     const setroom=(e)=>
     {
-        setroomId(e);
-        console.log(e);
+        setroomId(e.target.value);
+        console.log(e.target.value);
     }
     const joinRoom = () => 
     {
-        props.history.push("/classroom/" +roomId);
+        props.history.push("/meeting/" +roomId);
     }
     return (
         <>

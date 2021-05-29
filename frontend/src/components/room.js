@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useSocket } from '../socket/socketprovider';
+import Chat from './Chat.js';
+import Footer from './footer.js';
 const Room=(props)=>
 {
     const socket = useSocket()
@@ -21,7 +23,10 @@ const Room=(props)=>
     }, [socket])
     
     return(
-        <h1>"hi"</h1>
+        <div>
+            <Chat></Chat>
+            <Footer></Footer>
+        </div>
     )
 }
 export default Room;
