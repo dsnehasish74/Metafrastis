@@ -29,6 +29,7 @@
 }
 .right{
   flex: 0.4;
+  overflow-y:scroll; 
 }
 
 .type{

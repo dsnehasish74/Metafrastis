@@ -4,7 +4,7 @@ import { Button } from './Button';
 import './footer.css';
 
 
-function Footer(){
+function Footer(props){
     return (
         <>
             <div className="wtf">
