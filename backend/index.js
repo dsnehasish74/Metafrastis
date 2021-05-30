@@ -8,6 +8,10 @@ const io = socketio(server);
 const {joinUser,getUser} = require('./util/user');
 var cors =require('cors');
 app.use(cors());
+app.get('/', function (req, res) 
+{
+    res.send('hello world')
+})
 io.on('connection', (socket) => {
 
     //Join a room
