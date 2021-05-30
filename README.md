@@ -16,6 +16,10 @@ So we decided to capture the speech of the person from his/her side and then use
 - NodeJs for backend
 - ReactJs for frontend
 
+  ## Video Example:
+  [![Copy Tracker](https://img.youtube.com/vi/WWQr9JMs14o/0.jpg)](https://youtu.be/WWQr9JMs14o)
+
+
 # TEAM MEMBERS
 - Snehasish Dhar
 - Anish De
