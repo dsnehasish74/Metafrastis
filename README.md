@@ -4,7 +4,7 @@
 Break the barrier of your country, language and distance...
 
 # PROBLEM OUR PROJECT SOLVES
-With the onset of Covid-19 we have been confined to the boundaries of our homes. Communication today is accomplished majorly over online conference where sound quality is often poor. And in case people do not understand one another's language, then even quality of soung becomes a secondary factor.
+With the onset of Covid-19 we have been confined to the boundaries of our homes. Communication today is accomplished majorly over online conference where sound quality is often poor. . Holding Google translator in one hand and phone in the other is simply not a feasible enough solution. For example in one instance, a Bengali phrase "Kemon achen?" (How are you?) got translated to "You are a thief" in English during an online meeting. Add to that the ever lasting problems like poor sound quality, breaking of sound, etc. 
 
 So we decided to capture the speech of the person from his/her side and then use Google Translate to translate the captured text. This eliminates the possibility of wrong translation due poor sound, network error, etc that may occur if Google translate is to be used on the other side of the call.
 
