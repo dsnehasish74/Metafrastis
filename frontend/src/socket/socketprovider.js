@@ -12,7 +12,7 @@ export function SocketProvider({ children }) {
 
   useEffect(() => {
     const newSocket = io(
-      'http://localhost:8000', {transports: ['websocket']}
+      'https://metafratis.herokuapp.com/', {transports: ['websocket']}
     )
     setSocket(newSocket);
 
