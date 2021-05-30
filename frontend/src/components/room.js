@@ -89,28 +89,29 @@ const Room = (props) => {
         setmike(0);
     }
     return (
-        <>
-            <Chat
-                messages={messages}
-                user={user}
-            />
+        <div className="room_body">
+            <div className="left_window">
             <button ref={microphoneRef} className="mic" onClick={handleListing}><img src="../assets/mic.png" width="50" height="50" alt="" /></button>
             {isListening && (
-                <button className="microphone-stop btn" onClick={stopHandle}>
+                <button className="microphone-stop" onClick={stopHandle}>
                     Stop
                 </button>
             )}
 
                 <div className="microphone-result-container">
-                    <textarea  ref={sendeRef} value={transcript} col="5" row="6"/>
+                    <div  ref={sendeRef}> {transcript} </div>
                 </div>
                 {mike==0 &&(
-                    <textarea type="text" col="5" row="6" onChange={setthetext}/>
-                )} 
+                    <textarea className="type" type="text" col="5" row="6" onChange={setthetext}/>
+                )}
                 <button className="Send_button" onClick={handleSend}>Send</button>
-
+                </div>
+                <Chat
+                messages={messages}
+                user={user}
+            />
             <Footer></Footer>
-        </>
+        </div>
     )
 }
 export default Room;

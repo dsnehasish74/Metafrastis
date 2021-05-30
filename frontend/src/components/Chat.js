@@ -27,7 +27,7 @@ function Chat(props){
     var currentUser =  props.currentUser
     console.log(list)
     return (
-        <>
+        <div className="right">
             <div className="box">
                 <div className="chat"><h1>Chats</h1><hr/></div>
                 {list.map((msg) => (
@@ -38,7 +38,7 @@ function Chat(props){
                         />
                     ))}
             </div>
-        </>
+        </div>
     )
 }
 

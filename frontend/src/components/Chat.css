@@ -1,7 +1,5 @@
 .box{
-    width: 40%;
-    position: absolute;
-    right: 0;
+
     /*display: flex;
     flex: auto;*/
     justify-content: center;
