@@ -4,9 +4,15 @@ const joinUser = (id,username,room) =>{
     users.push(user);
     return user;
 }
-
+const deleteUser = (id,username,room) =>{
+    const user = {id,username,room};
+    users = users.filter(function(curuser) 
+    {
+        return curuser !== user
+    })
+}
 const getUser = (id)=>{
     return users.find(user => user.id === id);
 }
 
-module.exports =  {joinUser,getUser};
+module.exports =  {joinUser,getUser,deleteUser};

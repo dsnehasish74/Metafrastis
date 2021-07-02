@@ -8,14 +8,12 @@ const RoomContainer=(props)=>
         alert("Invalid room id !");
         props.history.push("/");
     }
-    /*useEffect(()=>{
-        fetch("http://localhost:8000/"+room_id)
-        .then(response => response.json())
-        .then(data =>   console.log(data))
-    });*/
     return (
         <SocketProvider>
-            <Room room_id={room_id}/>
+            <Room 
+                room_id={room_id}
+                history={props.history}
+            />
         </SocketProvider>
     );
 }

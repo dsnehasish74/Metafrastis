@@ -4,12 +4,10 @@ import Footer from './footer';
 import Chat from "./Chat";
 import axios from 'axios';
 import {useUser} from '../provider/userprovider.js'
-import SpeechRecognition, { useSpeechRecognition } from "react-speech-recognition";
 import { useLang } from '../provider/langprovider.js';
 const Room = (props) => {
     const [messages,setmessages]=useState([]);
     const [text,settext]=useState();
-    const [mike,setmike]=useState(0);
     const socket = useSocket();
     const user=useUser();
     const lang=useLang();
@@ -48,30 +46,12 @@ const Room = (props) => {
         console.log("Outside socket.on");
         return () => socket.off('chatMessage');
     }, [socket])
-
-    const { transcript, resetTranscript } = useSpeechRecognition();
-    const [isListening, setIsListening] = useState(false);
-    const microphoneRef = useRef(null);
-    const sendeRef = useRef(null);
-    if (!SpeechRecognition.browserSupportsSpeechRecognition()) {
-      return (
-        <div className="mircophone-container">
-          Browser is not Support Speech Recognition.
-        </div>
-      );
-    }
-    const handleListing = () => {
-      setIsListening(true);
-      microphoneRef.current.classList.add("listening");
-      SpeechRecognition.startListening({
-        continuous: true,
-      });
-      setmike(1);
-    };
-    const stopHandle = () => {
-      setIsListening(false);
-      microphoneRef.current.classList.remove("listening");
-      SpeechRecognition.stopListening();
+    const [copy,setcopy]=useState('Click to Copy Meeting ID.');
+    const [textContent,settextContent]=useState([]);
+    function copyToClipboard(e)
+    {
+        navigator.clipboard.writeText(textContent.innerText);
+        setcopy('Copied to Clipboard!');
     };
     function setthetext(e)
     {
@@ -81,36 +61,22 @@ const Room = (props) => {
         if (socket == null)
             return
         console.log(socket);
-        if (mike==1)
-            socket.emit('chatMessage', sendeRef.current.value);
-        else
-            socket.emit('chatMessage', text);
-        resetTranscript();
-        setmike(0);
+        socket.emit('chatMessage', text);
     }
     return (
         <div className="room_body">
+            <h2>Meeting Id:-</h2>
+            <p ref={(c) => (settextContent(c))}>{props.room_id}</p>
+            <button onClick={copyToClipboard}>Copy</button>
             <div className="left_window">
-            <button ref={microphoneRef} className="mic" onClick={handleListing}><img src="../assets/mic.png" width="50" height="50" alt="" /></button>
-            {isListening && (
-                <button className="microphone-stop" onClick={stopHandle}>
-                    Stop
-                </button>
-            )}
-
-                <div className="microphone-result-container">
-                    <div  ref={sendeRef}> {transcript} </div>
-                </div>
-                {mike==0 &&(
-                    <textarea className="type" type="text" col="5" row="6" onChange={setthetext}/>
-                )}
-                <button className="Send_button" onClick={handleSend}>Send</button>
-                </div>
-                <Chat
+            <textarea className="type" type="text" col="5" row="6" onChange={setthetext}/>
+            <button className="Send_button" onClick={handleSend}>Send</button>
+            </div>
+            <Chat
                 messages={messages}
                 user={user}
             />
-            <Footer></Footer>
+            <Footer history={props.history}></Footer>
         </div>
     )
 }

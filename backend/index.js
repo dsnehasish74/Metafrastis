@@ -5,7 +5,7 @@ const socketio = require('socket.io');
 const app = express();
 const server = http.createServer(app);
 const io = socketio(server);
-const {joinUser,getUser} = require('./util/user');
+const {joinUser,getUser,deleteUser} = require('./util/user');
 var cors =require('cors');
 app.use(cors());
 app.get('/', function (req, res) 
@@ -36,6 +36,7 @@ io.on('connection', (socket) => {
     })
 
     socket.on('disconnect',()=>{
+        deleteUser(socket.id,username,room);
         socket.broadcast.emit('message', 'A user has been Disconnected');
     })
  });
