@@ -37,7 +37,6 @@ function Join(props){
     return (
         <>
             <div class="container">
-                <div className="image-container"><img src="../assets/bg-heading-03.jpg" alt="" height="500"/></div>
                 <div className="form-container">
                 <form className="form">
                     <label>Enter Meeting ID:</label>
