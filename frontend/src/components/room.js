@@ -62,13 +62,13 @@ const Room = (props) => {
             <p ref={(c) => (settextContent(c))}>{props.room_id}</p>
             <button onClick={copyToClipboard}>Copy</button>
             <div className="left_window">
-            <textarea className="type" type="text" col="5" row="6" onChange={setthetext}/>
-            <button className="Send_button" onClick={handleSend}>Send</button>
             </div>
             <Chat
                 messages={messages}
                 user={user}
             />
+            <textarea className="type" type="text" col="5" row="6" onChange={setthetext}/>
+            <button className="Send_button" onClick={handleSend}>Send</button>
             <Footer history={props.history}></Footer>
         </div>
     )
