@@ -20,24 +20,18 @@ io.on('connection', (socket) => {
 
     socket.on('joinRoom',({username,room}) => {
         const user = joinUser(socket.id,username,room);
-
-        socket.join(user.room);
-
-        console.log(user)
-
         socket.broadcast.to(user.room).emit('message',`${user.username} Joined`);
 
-    })
+    })    
 
     socket.on('chatMessage',msg=>{
         const user = getUser(socket.id);
-        console.log(msg)
         io.to(user.room).emit('chatMessage', {user: `${user.username}`,msg:`${msg}`});
     })
 
     socket.on('disconnect',()=>{
         deleteUser(socket.id,username,room);
-        socket.broadcast.emit('message', 'A user has been Disconnected');
+        socket.broadcast.emit('message', 'A user has been Disconnected',users);
     })
  });
 const port = process.env.PORT || 8000;

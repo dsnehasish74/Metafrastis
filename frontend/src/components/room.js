@@ -11,31 +11,26 @@ const Room = (props) => {
     const socket = useSocket();
     const user=useUser();
     const lang=useLang();
-    console.log(user);
-    console.log(lang);
     useEffect(() => {
         if (socket == null)
             return
-        console.log(socket);
         socket.emit('joinRoom', { username: user, room: 1 });
-        console.log("HI")
-    }, [socket])
-    useEffect(() => {
-        if (socket == null) return
-        socket.on('message', (msg) => {
-            console.log("Inside socket.on");
-            console.log(msg);
-        })
-        console.log("Outside socket.on");
-        return () => socket.off('message');
     }, [socket])
 
     useEffect(() => {
         if (socket == null) return
+        socket.on('message', (msg) => {
+        })
+        return () => socket.off('message');
+    }, [socket])
+
+    useEffect(() => {
+        console.log("hi")
+        if (socket == null) return
         socket.on('chatMessage', (msg) => {
-            console.log("Inside socket.on");
             let username=msg.user;
-            axios.post('https://translate-metafratis.herokuapp.com/translate', {
+            console.log(msg.msg)
+            axios.post('https://translate-meta.herokuapp.com/translate', {
             text:msg.msg,
             lan:lang,
         })
@@ -43,7 +38,6 @@ const Room = (props) => {
         setmessages((messages)=>messages.concat([{"user": username, "message":response.data.output}]))
     })
         })
-        console.log("Outside socket.on");
         return () => socket.off('chatMessage');
     }, [socket])
     const [copy,setcopy]=useState('Click to Copy Meeting ID.');
@@ -60,7 +54,6 @@ const Room = (props) => {
     const handleSend=()=>{
         if (socket == null)
             return
-        console.log(socket);
         socket.emit('chatMessage', text);
     }
     return (
